@@ -7,7 +7,7 @@ import Row from "./component/Row";
 
 function App() {
   const dispatch = useDispatch();
-  const i18n = useSelector(state => state.i18n);
+  const i18n = useSelector((state) => state.i18n);
 
   const createNewMainKey = () => {
     const key = prompt("Enter the new key name: ");
@@ -20,11 +20,11 @@ function App() {
     dispatch.i18n.changeMainKeyName({ key, value });
   };
 
-  const deleteMainKey = key => {
+  const deleteMainKey = (key) => {
     dispatch.i18n.deleteMainKey({ key });
   };
 
-  const createNewNestedKey = key => {
+  const createNewNestedKey = (key) => {
     const nestedKey = prompt("Enter the new nested key name: ");
     if (nestedKey) {
       dispatch.i18n.newNestedKey({ key, nestedKey });
@@ -46,7 +46,7 @@ function App() {
     }
   };
 
-  const getLangJSON = language => {
+  const getLangJSON = (language) => {
     const output = {};
     for (let mainItem of i18n) {
       const subObj = {};
@@ -118,7 +118,7 @@ function App() {
               "data:text/plain;charset=utf-8," +
               encodeURIComponent(getLangJSON("en"))
             }
-            download="en.json"
+            download="en_US.json"
           >
             EN
           </a>
@@ -129,7 +129,7 @@ function App() {
               "data:text/plain;charset=utf-8," +
               encodeURIComponent(getLangJSON("tc"))
             }
-            download="tc.json"
+            download="zh_HK.json"
           >
             TC
           </a>
@@ -140,7 +140,7 @@ function App() {
               "data:text/plain;charset=utf-8," +
               encodeURIComponent(getLangJSON("sc"))
             }
-            download="sc.json"
+            download="zh_CN.json"
           >
             SC
           </a>
